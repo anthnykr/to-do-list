@@ -3,7 +3,4 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply flex justify-center w-screen h-screen items-center bg-black text-white;
-  }
 }

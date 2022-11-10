@@ -1,50 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
-import Header from "../components/Header";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { ArrowPathIcon } from "@heroicons/react/24/solid";
+import { NextPage } from "next";
+import LogIn from "../components/LogIn";
 
-const Home = () => {
-  const { data: session, status } = useSession();
-
-  if (status === "loading") {
-    return (
-      <div>
-        <div>
-          <ArrowPathIcon className="h-20 w-20 animate-spin" />
-        </div>
-      </div>
-    );
-  }
-
-  if (status === "unauthenticated") {
-    return (
-      <div className="bg-white text-black">
-        <button onClick={() => signIn()} className="px-20 py-10">
-          Login
-        </button>
-      </div>
-    );
-  }
-
+const Home: NextPage = () => {
   return (
-    <div className="flex-col space-y-2 md:space-y-4">
-      <div className="flex space-x-2 md:space-x-4">
-        <Image
-          src={session.user.image}
-          alt={session.user.name}
-          width={30}
-          height={30}
-          className="rounded-full"
-        />
-        <p>Hi, {session.user.name}</p>
-      </div>
+    <div className="bg-black text-white w-screen h-screen flex items-center justify-center">
+      <Head>
+        <title>To Do List</title>
+      </Head>
 
-      <div className="bg-white text-black">
-        <button onClick={() => signOut()} className="px-20 py-10">
-          Logout
-        </button>
-      </div>
+      <LogIn />
     </div>
   );
 };
