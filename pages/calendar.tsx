@@ -1,19 +1,19 @@
 import Head from "next/head";
 import { NextPage } from "next";
 import Header from "../components/Header";
-import ToDoList from "../components/ToDoList";
+import Calendar from "../components/Calendar";
 
-const Home: NextPage = () => {
+const calendar: NextPage = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div>
       <Head>
         <title>To Do List</title>
       </Head>
 
       <Header />
-      <ToDoList />
+      <Calendar />
     </div>
   );
 };
 
-export default Home;
+export default calendar;
