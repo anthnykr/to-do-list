@@ -5,6 +5,9 @@ import prisma from "../../../lib/prisma";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
+  session: {
+    maxAge: 30*24*60*60, // 30 days
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
@@ -16,7 +19,5 @@ export default NextAuth({
       return session;
     },
   },
-  pages: {
-    signIn: "/signIn",
-  },
+  secret: process.env.NEXTAUTH_SECRET,
 });
