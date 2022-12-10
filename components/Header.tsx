@@ -8,11 +8,11 @@ const Header: NextPage = () => {
   const displayAuthButtons = status !== "loading";
 
   const login = () => {
-    signIn("google");
+    signIn("google", { callbackUrl: "/" });
   };
 
   const logout = () => {
-    signOut({ callbackUrl: "http://localhost:3000" });
+    signOut({ callbackUrl: "/" });
   };
 
   return (

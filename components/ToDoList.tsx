@@ -53,7 +53,9 @@ function ToDoList() {
   }
 
   useEffect(() => {
-    loadItems()
+    if (emailId) {
+      loadItems()
+    }
   }, [todolist])
 
   return (

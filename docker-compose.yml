@@ -6,9 +6,8 @@ services:
     ports:
       - '5433:5432'
     environment:
-      POSTGRES_USER: process.env.DATABASE_USERNAME
-      POSTGRES_PASSWORD: process.env.DATABASE_PWD
-      POSTGRES_DB: postgres
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     restart: always
