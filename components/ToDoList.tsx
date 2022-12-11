@@ -19,7 +19,7 @@ function ToDoList() {
   async function addItem(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
   
-    const response = await fetch("/api/addItem", {
+    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/addItem", {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -33,7 +33,7 @@ function ToDoList() {
   }
 
   async function removeItem(index: Number) {
-    const response = await fetch("/api/removeItem?index=" + index, {
+    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/removeItem?index=" + index, {
       method: "DELETE",
     })
     await loadItems()
@@ -42,7 +42,7 @@ function ToDoList() {
   }
 
   async function loadItems() {
-    const response = await fetch("/api/itemList", {
+    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/itemList", {
       method: "GET",
       headers: {
         'Accept': 'application/json',
