@@ -11,15 +11,10 @@ function ToDoList() {
 
   const emailId = session?.user?.email
 
-  // const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   setTodolist([...todolist, { text, date }])
-  // }
-
   async function addItem(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-  
-    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/addItem", {
+    
+    await fetch("/api/addItem", {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -28,21 +23,17 @@ function ToDoList() {
       body: JSON.stringify({ text, date, emailId })
     })
     await loadItems()
-    // const content = await response.json()
-    // setTodolist(content.todolist)
   }
 
   async function removeItem(index: Number) {
-    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/removeItem?index=" + index, {
+    const response = await fetch("/api/removeItem?index=" + index, {
       method: "DELETE",
     })
     await loadItems()
-    // const content = await response.json()
-    // setTodolist([content])
   }
 
   async function loadItems() {
-    const response = await fetch("https://to-do-list-anthnykr.vercel.app/api/itemList", {
+    const response = await fetch("/api/itemList", {
       method: "GET",
       headers: {
         'Accept': 'application/json',
