@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
 
 export default async function itemList(req: NextApiRequest, res: NextApiResponse) {
+  const prisma = require('/lib/prisma')
   const session = await getSession({ req });
 
   if (session && session.user) {

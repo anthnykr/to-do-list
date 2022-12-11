@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function addItem(req: NextApiRequest, res: NextApiResponse) {
+  const prisma = require('/lib/prisma')
   const { text, date, emailId } = req.body
 
   const userExists = await prisma.user.findUnique({
